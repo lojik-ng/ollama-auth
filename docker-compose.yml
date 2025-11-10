@@ -2,6 +2,7 @@ services:
 
   ollama-auth:
     image: ghcr.io/g1ibby/ollama-auth:latest
+    container_name: ollama-auth
     ports:
       - "11435:80"
     environment:
