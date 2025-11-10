@@ -5,10 +5,4 @@ services:
     ports:
       - "11435:80"
     environment:
-      - OLLAMA_API_KEY=your_api_key_here
-    volumes:
-      - ollama_models:/root/.ollama
-
-volumes:
-  ollama_models:
-    driver: local
+      - OLLAMA_API_KEY=bb80cad2-c418-4eb4-a483-575f163e39d1

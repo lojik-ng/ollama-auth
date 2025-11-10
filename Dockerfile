@@ -3,9 +3,6 @@ FROM ubuntu:24.04
 # Update and install wget to download caddy
 RUN apt-get update && apt-get install -y wget curl bash
 
-# Download and install ollama
-RUN curl -fsSL https://ollama.com/install.sh | sh
-
 # Download and install caddy
 RUN wget --no-check-certificate https://github.com/caddyserver/caddy/releases/download/v2.10.0/caddy_2.10.0_linux_amd64.tar.gz \
     && tar -xvf caddy_2.10.0_linux_amd64.tar.gz \
@@ -15,9 +12,6 @@ RUN wget --no-check-certificate https://github.com/caddyserver/caddy/releases/do
 
 # Copy the Caddyfile to the container
 COPY Caddyfile /etc/caddy/Caddyfile
-
-# Set the environment variable for the ollama host
-ENV OLLAMA_HOST=0.0.0.0
 
 # Expose the port that caddy will listen on
 EXPOSE 80

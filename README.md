@@ -1,22 +1,12 @@
 # Ollama with API Key Authentication
 
-A secure Docker image that runs the Ollama service with API key authentication using Caddy as a reverse proxy. This setup provides multiple authentication methods while keeping your Ollama instance secure.
+A secure Docker image that runs a reverse proxy service with API key authentication using Caddy. This setup provides multiple authentication methods and assumes that you already have your Ollama instance running on port 11434.
 
 ## Quick Start
 
-### Using Docker
-```bash
-docker run -d \
-  -p 11435:80 \
-  -e OLLAMA_API_KEY=your-secret-api-key \
-  -v ollama_data:/root/.ollama \
-  ghcr.io/g1ibby/ollama-auth:latest
-```
+Clone the repo
 
-### Using Docker Compose
 ```bash
-curl -O https://raw.githubusercontent.com/g1ibby/ollama-auth/main/docker-compose.yml
-# Edit docker-compose.yml to set your API key
 docker-compose up -d
 ```
 
@@ -48,11 +38,7 @@ curl -H "X-API-Key: your-secret-api-key" \
 | Variable | Required | Description | Default |
 |----------|----------|-------------|---------|
 | `OLLAMA_API_KEY` | ✅ | API key for authentication | - |
-| `OLLAMA_HOST` | ❌ | Ollama bind address | `0.0.0.0` |
 
-### Volume Mounts
-
-- `/root/.ollama` - Ollama models and configuration data
 
 ## Using with Ollama Clients
 
